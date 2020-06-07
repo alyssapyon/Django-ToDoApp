@@ -1,8 +1,25 @@
-<p>are you sure you want to delete "{{item}}"?</p>
+{% load static %}
 
-<a href="{% url 'list' %}">Cancel?</a>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="{% static 'css/list.css' %}" rel="stylesheet" type="text/css" >
+        <title>Delete Task</title>
+    </head>
+<body>
+    <div class="center-column">
+        <p>Are you sure you want to delete "{{item}}"?</p>
 
-<form method='POST' action="">
-    {% csrf_token %}
-    <input type="submit" name="Confirm">
-</form>
+        <a class="btn btn-sm btn-info" href="{% url 'list' %}">Cancel?</a>
+        
+        <form method='POST' action="">
+            {% csrf_token %}
+            <input class="btn btn-danger" type="submit" name="Confirm">
+        </form>
+    </div>
+    
+</body>
+</html>
